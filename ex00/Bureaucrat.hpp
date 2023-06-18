@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:53:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/18 00:07:41 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:13:16 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class   Bureaucrat
 {
     private:
-    const std::string   name;
+     std::string   name;
     int grade;
 
     public:
@@ -26,7 +26,6 @@ class   Bureaucrat
 
     Bureaucrat(Bureaucrat &SRC);
     Bureaucrat  &operator=(Bureaucrat &RightHand);
-
 
     int                 getGrade();
     const std::string   getName();

@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/18 01:23:31 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/18 21:13:20 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat()
 {
-    this->name = "Frtoto";
+    this->name = "fortoto";
     this->grade = 150;
     std::cout << "Bureaucrat: " << this->name << " default constructor called" << std::endl;
 }
