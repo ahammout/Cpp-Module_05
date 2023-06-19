@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/19 15:39:42 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/19 20:01:13 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,18 @@
 Bureaucrat::Bureaucrat()
 {
     this->name = "fortoto";
+    /// Lowest grade as initial value.
     this->grade = 150;
     std::cout << "Bureaucrat: " << this->name << " default constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(int gr)
+{
+    if (gr <= 0)
+        throw   GradeTooHighException();
+    if (gr > 150)
+        throw   GradeTooLowException();
+    this->grade = gr;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -32,9 +42,23 @@ Bureaucrat::Bureaucrat(Bureaucrat &SRC)
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat &RightHand)
 {
+    if (RightHand.getGrade() <= 0)
+        throw   GradeTooHighException();
+    if (RightHand.getGrade() > 150)
+        throw   GradeTooLowException();
     this->grade = RightHand.getGrade();
-    this->name = RightHand.getName();
     return(*this);
+}
+
+const char*     Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Exception: Grade is to high");
+}
+
+const char*    Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("Exception: Grade is too low");
+
 }
 
 int Bureaucrat::getGrade()
@@ -55,7 +79,7 @@ void    Bureaucrat::incrGrade()
     std::cout << "Increment grade function called" << std::endl;
     grade--;
     if (grade <= 0)
-        throw   -1;
+        throw   GradeTooHighException();
 }
 
 /// @brief check if The Grade attr is able to be inctement
@@ -66,5 +90,5 @@ void    Bureaucrat::decrGrade()
     std::cout << "decrement grade function called" << std::endl;
     grade++;
     if (grade > 150)
-        throw -2;
+        throw   GradeTooLowException();
 }

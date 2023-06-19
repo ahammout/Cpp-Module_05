@@ -6,11 +6,11 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/19 15:43:17 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/19 20:04:36 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Bureaucrat.cpp"
+#include"Bureaucrat.hpp"
 
 int main (void)
 {
@@ -19,19 +19,23 @@ int main (void)
     // std::cout <<  obj.getGrade() << std::endl;
     try
     {
-        obj.incrGrade();
+        std::cout <<  obj.getGrade() << std::endl;
+        /// test with copy constrctor copy assignment operator
+        // obj = Bureaucrat(190);
+        obj.decrGrade();
     }
-    /// @param const std::exception& e
-    catch(int i)
+    ///@param const std::exception& ex
+    catch(Bureaucrat::GradeTooHighException ex)
     {
-        std::cerr << "Exeption: N' " << i << '\n';
+        std::cerr <<  ex.what() << '\n';
+    }
+    catch(Bureaucrat::GradeTooLowException ex)
+    {
+        std::cerr <<  ex.what() << '\n';
     }
     catch (...)
     {
-        std::cerr << "Def exeption called" << std::endl;
+        std::cerr << "Exeption: other exeption called" << std::endl;
     }
-    
-    // std::cout <<  obj.getGrade() << std::endl;    
-
     return (0);
 }
