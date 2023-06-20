@@ -6,23 +6,23 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/20 19:24:52 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:24:59 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): name("lm9adem"), grade(150)
+Bureaucrat::Bureaucrat() : name("l3amel"), grade(150)
 {
     std::cout << "Bureaucrat: " << this->name << " default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(int gr, std::string n): name(n), grade(gr)
+Bureaucrat::Bureaucrat(int gr, std::string n) : name(n), grade(gr)
 {
     std::cout << "Bureaucrat: " << this->name << " parametered constructor called" << std::endl;
-    if (this->grade <= 0)
+    if (gr <= 0)
         throw   GradeTooHighException();
-    if (this->grade > 150)
+    if (gr > 150)
         throw   GradeTooLowException();
 }
 
@@ -89,6 +89,8 @@ void    Bureaucrat::decrGrade()
     if (grade > 150)
         throw   GradeTooLowException();
 }
+
+// <name>, bureaucrat grade <grade>.
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
 {
