@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:53:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/20 19:22:27 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 00:15:44 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class   Bureaucrat
     const std::string   getName();
     void                incrGrade();
     void                decrGrade();
+
+    ///@note  Add member function signForm() that will call the member function beSigned() of the the class Form to sign it if the grade is high enough;
     
 };
 

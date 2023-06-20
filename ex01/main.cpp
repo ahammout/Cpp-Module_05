@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/20 18:24:31 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 00:16:43 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main (void)
     Bureaucrat obj;
     
     // std::cout <<  obj.getGrade() << std::endl;
+    ///@note This main is like shit, add more tests and do your fucking job
     try
     {
         std::cout <<  obj << std::endl;
@@ -25,7 +26,6 @@ int main (void)
         obj.decrGrade();
     }
     ///@param const std::exception& ex
-    ///@note add more tests
     catch(Bureaucrat::GradeTooHighException ex)
     {
         std::cerr <<  ex.what() << '\n';
