@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/20 18:25:42 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:35:35 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main (void)
         /// test with copy constrctor copy assignment operator
         // obj = Bureaucrat(190);
         obj.decrGrade();
+        ///@note Here after throwing an exception the execution ofthis block stops here and executes catch ;
+        std::cout << "THIS IS AFTER THROWING AN EXCEPTION" << std::endl;
     }
     ///@param const std::exception& ex
     ///@note add more tests

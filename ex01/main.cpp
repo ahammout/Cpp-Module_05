@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 00:16:43 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:42:40 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main (void)
     }
     catch (...)
     {
-        std::cerr << "Exeption: other exeption called" << std::endl;
+        std::cerr << "Exeption: unexpected exception" << std::endl;
     }
     return (0);
 }

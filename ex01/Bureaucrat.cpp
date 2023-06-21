@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/20 19:24:59 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:43:11 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,24 @@ void    Bureaucrat::decrGrade()
         throw   GradeTooLowException();
 }
 
+void    Bureaucrat::signForm()
+{
+    Form formObj;
+
+    try
+    {
+        formObj.beSigned(*this);
+        std::cout << this->getName() << " Signed " << formObj.getName() << std::endl;
+    }
+    catch (Form::GradeTooLowException &ex)
+    {
+        std::cout << this->getName() << " couldn't sign " << formObj.getName() << " because Bureaucrat grade is too low!" << std::endl;
+    }
+    catch (...)
+    {
+        std::cout << "Exception: unexpected exception" << std::endl;
+    }
+}
 // <name>, bureaucrat grade <grade>.
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)

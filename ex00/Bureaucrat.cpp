@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/20 19:24:52 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:18:30 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,3 +95,4 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
     output << REF.getName() << " bureaucrat grade " << REF.getGrade();
     return (output);
 }
+

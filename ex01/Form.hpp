@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:12 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 00:06:31 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:26:03 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ class   Form
         const char* what() const throw();
     };
 
-    const std::string getName();
+    std::string getName();
     bool    getSignature();
-    const int getSgrade();
-    const int getExGrade();
+    int getSgrade();
+    int getExGrade();
 
     void    beSigned(Bureaucrat &B);
-    void    signForm(Bureaucrat &B);
 };
 
 std::ostream    &operator<<(std::ostream &output, Form &REF);

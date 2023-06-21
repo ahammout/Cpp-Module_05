@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 00:10:37 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:45:56 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,14 @@ bool    Form::getSignature()
     return (this->_signature);
 }
 
-const int   Form::getSgrade()
+int   Form::getSgrade()
 {
     return (this->_sgrade);
 }
 
-const int   Form::getExGrade()
+int   Form::getExGrade()
 {
     return (this->_exgrade);
-}
-
-std::ostream    &operator<<(std::ostream &output, Form &REF)
-{
-    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
-    return (output);
 }
 
 void    Form::beSigned(Bureaucrat &B)
@@ -87,4 +81,10 @@ void    Form::beSigned(Bureaucrat &B)
     if (B.getGrade() > this->getSgrade())
         throw GradeTooLowException();
     this->_signature = true;
+}
+
+std::ostream    &operator<<(std::ostream &output, Form &REF)
+{
+    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
+    return (output);
 }
