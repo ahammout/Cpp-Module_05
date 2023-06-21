@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:53:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 14:20:11 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:40:57 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include<iostream>
 #include"Form.hpp"
 
+class Form;
 class   Bureaucrat
 {
     private:
@@ -48,6 +49,6 @@ class   Bureaucrat
     void    signForm();
 };
 
-std::ostream &operator<<(std::ostream &output, const Bureaucrat &REF);
+std::ostream &operator<<(std::ostream &output, Bureaucrat &REF);
 
 #endif

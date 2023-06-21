@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 14:18:30 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:42:37 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,6 @@ const   std::string Bureaucrat::getName()
     return (this->name);
 }
 
-/// @brief check if The Grade attr is able to be inctement
-/// @return throw an exeption if grade is out of the range
-/// @exception Bureaucrat::GradeTooHighException ==> this class inherates from exeption parent class
 void    Bureaucrat::incrGrade()
 {
     std::cout << "Increment grade function called" << std::endl;
@@ -79,9 +76,6 @@ void    Bureaucrat::incrGrade()
         throw   GradeTooHighException();
 }
 
-/// @brief check if The Grade attr is able to be inctement
-/// @return throw an exeption if grade is out of the range
-/// @exception Bureaucrat::GradeTooLowException ==> this class inherates from exeption parent class
 void    Bureaucrat::decrGrade()
 {
     std::cout << "decrement grade function called" << std::endl;
@@ -95,4 +89,3 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
     output << REF.getName() << " bureaucrat grade " << REF.getGrade();
     return (output);
 }
-

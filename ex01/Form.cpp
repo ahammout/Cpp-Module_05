@@ -6,19 +6,15 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 17:45:56 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:16:10 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Form.hpp"
 
-Form::Form() : _signature(false), _name("Shahdat sokna"), _sgrade(1), _exgrade(5)
+Form::Form() : _name("Shahdat sokna"), _signature(false), _sgrade(1), _exgrade(5)
 {   
     std::cout << "Form: " << _name << " default constructor called" << std::endl;
-    // if (Bureaucrat::getGrade > _sgrade)
-    //     throw GradeTooLowException();
-    // if (Bureaucrat::getGrade() < _sgrade)
-    //     throw GradeTooHighException();
 }
 
 Form::Form(std::string n, bool _si, int _sg, int _exg): _name(n), _signature(_si), _sgrade(_sg), _exgrade(_exg)
@@ -37,41 +33,38 @@ Form::Form(Form &SRC)
     *this = SRC;
 }
 
-Form&   Form::operator=(Form &RightHand)
+Form&   Form::operator=(const Form &RightHand)
 {
-    this->_name = RightHand.getName();
-    this->_signature = RightHand.getSignature();
-    this->_exgrade = RightHand.getExGrade();
-    this->_sgrade = RightHand.getSgrade();
+    Form(RightHand._name, RightHand._signature, RightHand._sgrade, RightHand._exgrade);
     return (*this);
 }
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-    std::cout << "Grade is too high" << std::endl;
+    return ("Grade is too high");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    std::cout << "Grade is too low" << std::endl;
+    return ("Grade is too low");
 }
 
-const std::string    Form::getName()
+std::string    Form::getName() const
 {
     return(this->_name);
 }
 
-bool    Form::getSignature()
+bool    Form::getSignature() const
 {
     return (this->_signature);
 }
 
-int   Form::getSgrade()
+int   Form::getSgrade() const
 {
     return (this->_sgrade);
 }
 
-int   Form::getExGrade()
+int   Form::getExGrade() const
 {
     return (this->_exgrade);
 }

@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:12 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 15:26:03 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:15:39 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include<iostream>
 #include"Bureaucrat.hpp"
 
+class Bureaucrat;
 class   Form 
 {
     private:
@@ -30,7 +31,7 @@ class   Form
     ~Form();
 
     Form(Form &SRC);
-    Form&   operator=(Form &RgihtHand);
+    Form&   operator=(const Form &RightHand);
 
     class GradeTooHighException : std::exception
     {
@@ -43,10 +44,10 @@ class   Form
         const char* what() const throw();
     };
 
-    std::string getName();
-    bool    getSignature();
-    int getSgrade();
-    int getExGrade();
+    std::string getName() const;
+    bool    getSignature() const;
+    int getSgrade() const;
+    int getExGrade() const;
 
     void    beSigned(Bureaucrat &B);
 };
