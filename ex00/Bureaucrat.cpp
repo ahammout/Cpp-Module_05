@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 19:42:37 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:48:47 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat: " << this->name << " destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &SRC)
+Bureaucrat::Bureaucrat(Bureaucrat &SRC): name("lm9adam")
 {
     std::cout << "Bureaucrat: " << this->name << " copy constructor called" << std::endl;
     *this = SRC;

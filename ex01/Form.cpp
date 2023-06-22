@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/21 20:16:10 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:40:12 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Form::~Form()
     std::cout << "Form: " << _name << " destructor called" << std::endl;
 }
 
-Form::Form(Form &SRC)
+Form::Form(Form &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(SRC._sgrade), _exgrade(SRC._exgrade)
 {
     std::cout << "Form: " << _name << " copy constructor called" << std::endl;
     *this = SRC;
