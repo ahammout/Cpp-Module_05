@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/22 19:44:44 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/22 21:32:38 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main (void)
     std::cout << "Form Attributes: \n" << form;
     std::cout << "---------------------------------------------------------" << std::endl;
 
-    ---------------------------- THROWING EXCEPTION CASES-----------------------------//
+    //---------------------------- THROWING EXCEPTION CASES-----------------------------//
     Bureaucrat obj1(145, "Si blhich");
     Bureaucrat obj2(obj1);
     
