@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 18:22:39 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/24 19:10:20 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class   AForm
     };
 
     //----------- GETTERS ----------------/
-    std::string getName();
+    std::string getName() const;
     bool    getSignature() const;
     int getSgrade() const;
     int getExGrade() const;

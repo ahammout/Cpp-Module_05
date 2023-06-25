@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:26 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 18:11:08 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/06/24 19:10:56 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
     ///@note Test the abstract class ShrubberyCreationForm.
-    AForm   *obj = NULL;
+    AForm   *form = ;
 
     std::cout << obj->getName() << std::endl;
     return (0);
