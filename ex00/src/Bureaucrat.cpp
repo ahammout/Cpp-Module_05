@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Bureaucrat.hpp"
+#include"../includes/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(): name("lm9adem"), grade(150)
 {

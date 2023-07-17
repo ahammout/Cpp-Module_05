@@ -10,32 +10,44 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = c++
+NAME := Bureaucrat
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC := c++
 
-NAME = Bureaucrat
+CFLAGS := -Wall -Wextra -Werror -std=c++98
 
-INCLUDES = Bureaucrat.hpp AForm.hpp 
+INCLUDES := -I includes/
 
-SRCS =	main.cpp \
-		Bureaucrat.cpp \
-		AForm.cpp \
+OBJ_DIR := obj/
 
-OBJS = $(SRCS:.cpp=.o)
+SRC_DIR := src/
 
-%.o : %.cpp $(INCLUDES)
-	$(CC) $(CFLAGS) -c $< -o $@
+COLOUR_GREEN=\033[0;32m
+COLOUR_RED=\033[0;31m
+# COLOUR_BLUE=\033[0;34m
+COLOUR_END=\033[0m
+
+SRC := $(wildcard $(SRC_DIR)*.cpp $(SRC_DIR)*/*.cpp)
+OBJS := $(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRC))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(COLOUR_GREEN)Executable created$(COLOUR_END)"
+
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp includes/*.hpp
+	@echo "$(COLOUR_GREEN)Creating object file$(COLOUR_END)"
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS)
+	@echo "$(COLOUR_RED)Remove objects$(COLOUR_END)"
+	@rm -fr $(OBJ_DIR)
+	@rm -fr $(OBJS)
 
 fclean: clean
+	@echo "$(COLOUR_RED)Remove executable$(COLOUR_END)"
 	@rm -rf $(NAME)
 
 re: fclean all

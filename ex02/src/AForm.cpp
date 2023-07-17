@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include"AForm.hpp"
+#include"../includes/AForm.hpp"
 
 ///@param constructures needs to to take the attributes to initialize, in the derived classes need to call the parametred constructor.
 
@@ -52,6 +52,8 @@ const char* AForm::GradeTooLowException::what() const throw()
     return ("Grade is too low");
 }
 
+//------------------------------------------------- GETTERS ---------------------------------------------------/
+
 std::string    AForm::getName() const
 {
     return(this->_name);
@@ -71,6 +73,7 @@ int   AForm::getExGrade() const
 {
     return (this->_exgrade);
 }
+
 
 void    AForm::beSigned(Bureaucrat &B)
 {

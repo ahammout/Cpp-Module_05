@@ -16,10 +16,26 @@
 #include<iostream>
 #include"AForm.hpp"
 
-class ShrubberyCreationForm : AForm()
+class ShrubberyCreationForm : public AForm
 {
     public:
+    ShrubberyCreationForm();
+    ShrubberyCreationForm(std::string _n, bool _sign, int _sg, int _exg);
+    ~ShrubberyCreationForm();
+
+    ShrubberyCreationForm(ShrubberyCreationForm &SRC);
     
+    /// @brief Exeption classes
+    class GradeTooHighException : std::exception
+    {
+        public:
+        const char* what() const throw();
+    };
+    class GradeTooLowException : std::exception
+    {
+        public:
+        const char* what() const throw();
+    };
 };
 
 #endif

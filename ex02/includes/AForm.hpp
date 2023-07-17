@@ -48,6 +48,7 @@ class   AForm
     };
 
     //----------- GETTERS ----------------/
+    ///@note getters don't need to be implemented in the derived class: They don't have spevific effect in derived class
     std::string getName() const;
     bool    getSignature() const;
     int getSgrade() const;
