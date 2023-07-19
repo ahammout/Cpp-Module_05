@@ -15,6 +15,7 @@
 
 #include<iostream>
 #include"AForm.hpp"
+#include"Bureaucrat.hpp"
 
 class ShrubberyCreationForm : public AForm
 {
@@ -24,18 +25,10 @@ class ShrubberyCreationForm : public AForm
     ~ShrubberyCreationForm();
 
     ShrubberyCreationForm(ShrubberyCreationForm &SRC);
-    
-    /// @brief Exeption classes
-    class GradeTooHighException : std::exception
-    {
-        public:
-        const char* what() const throw();
-    };
-    class GradeTooLowException : std::exception
-    {
-        public:
-        const char* what() const throw();
-    };
+
+    ShrubberyCreationForm   &operator=(ShrubberyCreationForm &RightHand);
+
+    void    besigned(Bureaucrat &B);
 };
 
 #endif

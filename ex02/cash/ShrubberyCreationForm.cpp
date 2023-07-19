@@ -36,4 +36,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm & SRC): AForm
     *this = SRC;
 }
 
-ShrubberyCreationForm&  
+ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm &RightHand)
+{
+    AForm (RightHand.getName(), RightHand.getSignature(), RightHand.getSgrade(), RightHand.getExGrade());
+    return (*this);
+}
+
+void    ShrubberyCreationForm::beSigned(Bureaucrat &B)
+{
+    if (B.getGrade() > this->getSgrade())
+        throw GradeTooLowException();
+    this->_signature = true;
+}

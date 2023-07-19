@@ -17,9 +17,9 @@
 #include<iostream>
 #include"Bureaucrat.hpp"
 
-///@note This is an abstract class, this class can not be intentiated, this is an abstract base class, it will the base class of the other forms derived classes.
-
 class Bureaucrat;
+
+///@b Brief Make this class an abstract class
 class   AForm 
 {
     private:
@@ -48,14 +48,20 @@ class   AForm
     };
 
     //----------- GETTERS ----------------/
-    ///@note getters don't need to be implemented in the derived class: They don't have spevific effect in derived class
     std::string getName() const;
     bool    getSignature() const;
     int getSgrade() const;
     int getExGrade() const;
 
-    //---------- ADDITIONAL FUNCTIONS -------------/ 
-    void    beSigned(Bureaucrat &B);
+    //----------- SETTERS -----------------/
+    ///@note Set attributes using the prametered constructor
+    // void    setName(const std::string name);
+    // void    setSignature(bool signature);
+    // void    setSgrade(const int sgrade);
+    // void    setExGrade(const int exgrade);
+
+    //---------- PURE VIRTUAL FUNCTION -------------/ 
+    virtual void    beSigned(Bureaucrat &B);
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);

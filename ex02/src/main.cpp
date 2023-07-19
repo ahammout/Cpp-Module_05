@@ -12,12 +12,15 @@
 
 #include "../includes/Bureaucrat.hpp"
 
+///@note
+    
+
 int main(void)
 {
     ///@note Test the abstract class ShrubberyCreationForm.
-    AForm   *form;
+    AForm   form;
 
-    form = ShrubberyCreationForm
-    std::cout << obj->getName() << std::endl;
+    form = AForm("Certificate", false, 3, 1);
+    std::cout << "The name of the form: "<< form.getName() << std::endl;
     return (0);
 }
