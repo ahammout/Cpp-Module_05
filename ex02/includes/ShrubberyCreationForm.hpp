@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:59:34 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 18:05:40 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:19:20 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include<iostream>
 #include"AForm.hpp"
 #include"Bureaucrat.hpp"
+
+///@note Begin Declaring the derived CLASS ShrubberyCreationForm 
 
 class ShrubberyCreationForm : public AForm
 {
@@ -28,7 +30,15 @@ class ShrubberyCreationForm : public AForm
 
     ShrubberyCreationForm   &operator=(ShrubberyCreationForm &RightHand);
 
-    void    besigned(Bureaucrat &B);
+    // ///@b Derived_implementation Implement setters for derived class
+    // void    setName(const std::string name);
+    // void    setSignature(bool signature);
+    // void    setSgrade(const int sgrade);
+    // void    setExgrade(const int exgrade);
+    
+    void    beSigned(Bureaucrat &B);
 };
+
+std::ostream    &operator<<(std::ostream &output, AForm &REF);
 
 #endif

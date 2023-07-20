@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 19:10:20 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:01:34 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class   AForm
     ~AForm();
 
     AForm(AForm &SRC);
-    AForm&   operator=(const AForm &RightHand);
+    virtual AForm&   operator=(const AForm &RightHand) = 0;
 
     class GradeTooHighException : std::exception
     {
@@ -47,21 +47,12 @@ class   AForm
         const char* what() const throw();
     };
 
-    //----------- GETTERS ----------------/
     std::string getName() const;
     bool    getSignature() const;
     int getSgrade() const;
     int getExGrade() const;
 
-    //----------- SETTERS -----------------/
-    ///@note Set attributes using the prametered constructor
-    // void    setName(const std::string name);
-    // void    setSignature(bool signature);
-    // void    setSgrade(const int sgrade);
-    // void    setExGrade(const int exgrade);
-
-    //---------- PURE VIRTUAL FUNCTION -------------/ 
-    virtual void    beSigned(Bureaucrat &B);
+    virtual void    beSigned(Bureaucrat &B) = 0;
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);

@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 19:10:03 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/20 19:21:07 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,7 @@ AForm::AForm(AForm &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(
     *this = SRC;
 }
 
-AForm&   AForm::operator=(const AForm &RightHand)
-{
-    ///@note Can not init usign the constructor, it will be a bad idea.
-    ///@p setters to set attributes, "problem with overloading op="
-    _name = RightHand._name;
-    // AForm(RightHand._name, RightHand._signature, RightHand._sgrade, RightHand._exgrade);
-    return (*this);
-}
+//------------------------------- EXEPTIONS METHODS ----------------------------/
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
@@ -77,35 +70,7 @@ int   AForm::getExGrade() const
     return (this->_exgrade);
 }
 
-// //------------------------------------------------- SETTERS ---------------------------------------------------/
 
-// void    AForm::setName(std::string name)
-// {
-//     _name = name;
-// }
-// void    AForm::setSignature(bool signature)
-// {
-//     _signature = signature;
-// }
-// void    AForm::setSgrade(const int sgrade)
-// {
-//     _sgrade = sgrade;
-// }
-// void    AForm::setExGrade(const int exgrade)
-// {
-//     _exgrade = exgrade;
-// }
-
-//---------------------------------------------- ADDITIONAL FUNCTIONS ----------------------------------------/
-
-void    AForm::beSigned(Bureaucrat &B)
-{
-    if (B.getGrade() > this->getSgrade())
-        throw GradeTooLowException();
-    this->_signature = true;
-}
-
-//---------------------------------------------- OVERLOAD OPERATOR ----------------------------------------/
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF)
 {
