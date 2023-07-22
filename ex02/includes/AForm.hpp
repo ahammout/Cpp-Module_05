@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/20 19:01:34 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:03:23 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class   AForm
     int getSgrade() const;
     int getExGrade() const;
 
-    virtual void    beSigned(Bureaucrat &B) = 0;
+    void    beSigned(Bureaucrat &B);
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);

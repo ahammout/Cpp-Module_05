@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/20 20:40:48 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:22:50 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 ///@param constructures needs to to take the attributes to initialize, in the derived classes need to call the parametred constructor.
 
 AForm::AForm() : _name("Shahdat sokna"), _signature(false), _sgrade(1), _exgrade(5)
-{   
+{
     std::cout << "Form: " << _name << " default constructor called" << std::endl;
 }
 
 AForm::AForm(std::string n, bool _si, int _sg, int _exg): _name(n), _signature(_si), _sgrade(_sg), _exgrade(_exg)
 {
     std::cout << "Form: " << _name << " parametered constructor called" << std::endl;
+    if (_si > 150 || _exg > 150)
+        throw GradeTooLowException();
+    if (_si < 1 || _exg < 1)
+        throw GradeTooHighException();
 }
 
 AForm::~AForm()
@@ -69,7 +73,12 @@ int   AForm::getExGrade() const
     return (this->_exgrade);
 }
 
-
+void    AForm::beSigned(Bureaucrat &B)
+{
+    if (B.getGrade() > this->getSgrade())
+        throw GradeTooHighException();
+    this->_signature = true;
+}
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF)
 {

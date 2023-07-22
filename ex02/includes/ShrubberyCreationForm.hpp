@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:59:34 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/20 19:19:20 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/22 13:59:44 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,8 @@ class ShrubberyCreationForm : public AForm
     ShrubberyCreationForm(ShrubberyCreationForm &SRC);
 
     ShrubberyCreationForm   &operator=(ShrubberyCreationForm &RightHand);
-
-    // ///@b Derived_implementation Implement setters for derived class
-    // void    setName(const std::string name);
-    // void    setSignature(bool signature);
-    // void    setSgrade(const int sgrade);
-    // void    setExgrade(const int exgrade);
     
-    void    beSigned(Bureaucrat &B);
+    ///@Method function to execute the form.
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);
