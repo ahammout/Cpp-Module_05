@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:57:56 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 18:20:37 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/22 20:39:48 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,17 @@ void    Bureaucrat::decrGrade()
         throw   GradeTooLowException();
 }
 
-void    Bureaucrat::signForm()
+/// @brief refactor this 
+void    Bureaucrat::signForm(AForm *form)
 {
-    AForm *formObj = NULL;
-
     try
     {
-        formObj->beSigned(*this);
-        std::cout << this->getName() << " Signed " << formObj->getName() << std::endl;
+        /// Check if the Form it;s s
+        std::cout << this->getName() << " Signed " << form->getName() << std::endl;
     }
     catch (AForm::GradeTooLowException &ex)
     {
-        std::cerr << this->getName() << " couldn't sign " << formObj->getName() << " because his grade is too low!" << std::endl;
+        std::cerr << this->getName() << " couldn't sign " << form->getName() << " because his grade is too low!" << std::endl;
     }
     catch (...)
     {

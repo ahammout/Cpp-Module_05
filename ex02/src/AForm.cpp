@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/22 14:22:50 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/22 20:46:52 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,41 @@
 
 ///@param constructures needs to to take the attributes to initialize, in the derived classes need to call the parametred constructor.
 
-AForm::AForm() : _name("Shahdat sokna"), _signature(false), _sgrade(1), _exgrade(5)
+AForm::AForm() : _name("DefaultForm"), _signature(false), _sgrade(1), _exgrade(5)
 {
-    std::cout << "Form: " << _name << " default constructor called" << std::endl;
+    std::cout << "AForm " << "default constructor called" << std::endl;
+    if (this->getSgrade() > 150 || this->getExGrade() > 150)
+        throw GradeTooLowException();
+    if (this->getSgrade() < 1 || this->getExGrade() < 1)
+        throw GradeTooHighException();
 }
 
-AForm::AForm(std::string n, bool _si, int _sg, int _exg): _name(n), _signature(_si), _sgrade(_sg), _exgrade(_exg)
+AForm::AForm(const std::string n, bool _si, int _sg, int _exg): _name(n), _signature(_si), _sgrade(_sg), _exgrade(_exg)
 {
-    std::cout << "Form: " << _name << " parametered constructor called" << std::endl;
-    if (_si > 150 || _exg > 150)
+    std::cout << "AForm " << "parametered constructor called" << std::endl;
+    if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
-    if (_si < 1 || _exg < 1)
+    if (this->getSgrade() < 1 || this->getExGrade() < 1)
         throw GradeTooHighException();
 }
 
 AForm::~AForm()
 {
-    std::cout << "Form: " << _name << " destructor called" << std::endl;
+    std::cout << "AForm " << "destructor called" << std::endl;
 }
 
 AForm::AForm(AForm &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(SRC._sgrade), _exgrade(SRC._exgrade)
 {
-    std::cout << "Form: " << _name << " copy constructor called" << std::endl;
+    std::cout << "AForm "<< "copy constructor called" << std::endl;
     *this = SRC;
+}
+
+AForm&  AForm::operator=(const AForm &RightHand)
+{
+    std::string B;
+    
+    B = RightHand.getName();
+    return (*this);
 }
 
 //------------------------------- EXEPTIONS METHODS ----------------------------/
@@ -78,6 +90,7 @@ void    AForm::beSigned(Bureaucrat &B)
     if (B.getGrade() > this->getSgrade())
         throw GradeTooHighException();
     this->_signature = true;
+    std::cout << "B has signed the form" << std::endl;
 }
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF)

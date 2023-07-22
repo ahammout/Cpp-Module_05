@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/22 14:03:23 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/22 18:29:21 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class   AForm
     public:
     AForm();
     AForm(std::string n, bool _si, int _sg, int _exg);
-    ~AForm();
+    virtual ~AForm() = 0;
 
     AForm(AForm &SRC);
-    virtual AForm&   operator=(const AForm &RightHand) = 0;
+    AForm&   operator=(const AForm &RightHand);
 
     class GradeTooHighException : std::exception
     {
