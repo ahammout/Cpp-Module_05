@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/22 21:32:38 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:56:43 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int main (void)
     //---------------------------- THROWING EXCEPTION CASES-----------------------------//
     Bureaucrat obj1(145, "Si blhich");
     Bureaucrat obj2(obj1);
-    
+
     try
     {
-        obj2.signForm();
+        obj2.signForm(form);
         while (obj1.getGrade() > 1)
             obj1.incrGrade();
-        obj1.signForm();
+        obj1.signForm(form);
         while (obj1.getGrade() <= 151)
             obj1.decrGrade();
     }

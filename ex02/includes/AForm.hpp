@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/22 18:29:21 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:00:34 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ class   AForm
         const char* what() const throw();
     };
 
+    
     std::string getName() const;
     bool    getSignature() const;
     int getSgrade() const;
     int getExGrade() const;
 
     void    beSigned(Bureaucrat &B);
+    void    execute(Bureaucrat const & executor) const;
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);

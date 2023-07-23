@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:53:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/22 19:44:58 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:17:44 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class   Bureaucrat
     void                incrGrade();
     void                decrGrade();
 
-    void    signForm();
+    void    signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &REF);

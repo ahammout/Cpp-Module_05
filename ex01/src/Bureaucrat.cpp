@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/24 18:11:56 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:18:39 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,17 @@ void    Bureaucrat::decrGrade()
         throw   GradeTooLowException();
 }
 
-void    Bureaucrat::signForm()
+void    Bureaucrat::signForm(Form &form)
 {
-    Form formObj;
-
     try
     {
-        formObj.beSigned(*this);
-        std::cout << this->getName() << " Signed " << formObj.getName() << std::endl;
+        if (form.getSignature() == false)
+            throw GradeTooHighException();
+        std::cout << this->getName() << " Signed " << form.getName() << std::endl;
     }
     catch (Form::GradeTooLowException &ex)
     {
-        std::cerr << this->getName() << " couldn't sign " << formObj.getName() << " because his grade is too low!" << std::endl;
+        std::cerr << this->getName() << " couldn't sign " << form.getName() << " because his grade is too low!" << std::endl;
     }
     catch (...)
     {

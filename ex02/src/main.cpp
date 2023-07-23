@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:26 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/22 20:46:19 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/23 17:02:13 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int main(void)
     ///@note Test the abstract class ShrubberyCreationForm.
     Bureaucrat  Br(150, "Mark");
     ShrubberyCreationForm   shForm("Home");
-    
     try
     {
-        shForm.beSigned(Br);
+        Br.signForm(shForm);
     }
     catch(Bureaucrat::GradeTooHighException ex)
     {
@@ -34,10 +33,19 @@ int main(void)
     {
         std::cerr <<  ex.what() << '\n';
     }
+    catch(AForm::GradeTooHighException ex)
+    {
+        std::cerr <<  ex.what() << '\n';
+    }
+    catch(AForm::GradeTooLowException ex)
+    {
+        std::cerr <<  ex.what() << '\n';
+    }
     catch (...)
     {
         std::cerr << "Exeption: unexpected exception" << std::endl;
-    }    //-------------- TESTs TO CHECK THE ShrubberyCreationForm Derived class ------------------/
+    } 
+   //-------------- TESTs TO CHECK THE ShrubberyCreationForm Derived class ------------------/
     ///@note Display attributes
     // std::cout << "The name of the form: "<< shForm.getName() << std::endl;
     // std::cout << "Signature status: " << shForm.getSignature() << std::endl;
