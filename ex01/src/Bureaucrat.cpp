@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/23 17:18:39 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/23 19:47:01 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void    Bureaucrat::signForm(Form &form)
     try
     {
         if (form.getSignature() == false)
-            throw GradeTooHighException();
+            throw Form::GradeTooHighException();
         std::cout << this->getName() << " Signed " << form.getName() << std::endl;
     }
     catch (Form::GradeTooLowException &ex)
