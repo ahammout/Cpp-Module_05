@@ -6,11 +6,13 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/22 18:40:12 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 02:00:25 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/Form.hpp"
+
+//---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
 Form::Form() : _name("Shahdat sokna"), _signature(false), _sgrade(1), _exgrade(5)
 {   
@@ -33,11 +35,21 @@ Form::Form(Form &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(SRC
     *this = SRC;
 }
 
+//---***------------------------------------- OVERLOADING OPERATORS ---------------------------------***---//
+
 Form&   Form::operator=(const Form &RightHand)
 {
-    Form(RightHand._name, RightHand._signature, RightHand._sgrade, RightHand._exgrade);
+    this->_signature = RightHand.getSignature();
     return (*this);
 }
+
+std::ostream    &operator<<(std::ostream &output, Form &REF)
+{
+    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getSgrade() << std::endl << REF.getExGrade() << std::endl;
+    return (output);
+}
+
+//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
 
 const char* Form::GradeTooHighException::what() const throw()
 {
@@ -48,6 +60,8 @@ const char* Form::GradeTooLowException::what() const throw()
 {
     return ("Grade is too low");
 }
+
+//---***------------------------------ GETTERS --------------------------***---//
 
 std::string    Form::getName() const
 {
@@ -69,15 +83,11 @@ int   Form::getExGrade() const
     return (this->_exgrade);
 }
 
+//---***------------------------------ FORM METHODS --------------------------***---//
+
 void    Form::beSigned(Bureaucrat &B)
 {
     if (B.getGrade() > this->getSgrade())
         throw GradeTooLowException();
     this->_signature = true;
-}
-
-std::ostream    &operator<<(std::ostream &output, Form &REF)
-{
-    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
-    return (output);
 }

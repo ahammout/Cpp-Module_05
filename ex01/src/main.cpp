@@ -6,31 +6,31 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/23 17:56:43 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 01:58:31 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/Bureaucrat.hpp"
 
+///-- 1 - Setting up a good main [GOOOOD]
+///-- 2 - Check if the a form can be signed by a buraucrat [ Exceptions checking ] [+GOOOD]
+///-- 3 - Check all exception cases [ ].
+///-- 4 - Overloading operator cat't init all attr [*]
+///-- 5 - Check the perfect place to catch the exception to ignore the abord of the program
+///-- 6 - Set up the the base then pass to next exe...
+
 int main (void)
 {
-    //------------------------------- FORM TESTS ---------------/
-    Form form("Chahadat l7ayat", false, 1, 4);
-    std::cout << "Form Attributes: \n" << form;
-    std::cout << "---------------------------------------------------------" << std::endl;
-
-    //---------------------------- THROWING EXCEPTION CASES-----------------------------//
-    Bureaucrat obj1(145, "Si blhich");
-    Bureaucrat obj2(obj1);
+    //------------------------------- CREATING A FORM -------------------------------------/
+    Form form("Chahadat Sokna", false, 1, 4);
 
     try
     {
-        obj2.signForm(form);
-        while (obj1.getGrade() > 1)
-            obj1.incrGrade();
-        obj1.signForm(form);
-        while (obj1.getGrade() <= 151)
-            obj1.decrGrade();
+        Bureaucrat Br(1550, "Si blhich");
+        Br.signForm(form);
+        while (Br.getGrade() > 1)
+            Br.incrGrade();
+        Br.signForm(form);
     }
     catch(Bureaucrat::GradeTooHighException ex)
     {
@@ -46,17 +46,13 @@ int main (void)
     }
 
     //------------------------------ NO EXCEPTION CATCHED ------------------------------//
-    // Bureaucrat obj1(15, "Si blhich");
-    // Bureaucrat obj2(obj1);
 
     // try
     // {
-        
-    //     while (obj1.getGrade() > 1)
-    //         obj1.incrGrade();
-    //     obj2 = obj1;
-    //     obj1.signForm();
-    //     obj2.signForm();
+    //     Bureaucrat Br(150, "Si blhich");
+    //     while (Br.getGrade() > 1)
+    //         Br.incrGrade();
+    //     Br.signForm(form);
     // }
     // catch(Bureaucrat::GradeTooHighException ex)
     // {
