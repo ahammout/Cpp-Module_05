@@ -6,11 +6,13 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/22 19:48:47 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 17:55:51 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/Bureaucrat.hpp"
+
+//---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
 Bureaucrat::Bureaucrat(): name("lm9adem"), grade(150)
 {
@@ -31,11 +33,13 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat: " << this->name << " destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &SRC): name("lm9adam")
+Bureaucrat::Bureaucrat(Bureaucrat &SRC): name(SRC.getName()), grade(SRC.getGrade())
 {
     std::cout << "Bureaucrat: " << this->name << " copy constructor called" << std::endl;
     *this = SRC;
 }
+
+//---***------------------------------------- OVERLOADING OPERATORS ---------------------------------***---//
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat &RightHand)
 {
@@ -47,6 +51,14 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat &RightHand)
     return(*this);
 }
 
+std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
+{
+    output << REF.getName() << " bureaucrat grade " << REF.getGrade();
+    return (output);
+}
+
+//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+
 const char*     Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("Exception: Grade is to high");
@@ -55,8 +67,9 @@ const char*     Bureaucrat::GradeTooHighException::what() const throw()
 const char*    Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Exception: Grade is too low");
-
 }
+
+//---***------------------------------ GETTERS --------------------------***---//
 
 int Bureaucrat::getGrade()
 {
@@ -68,9 +81,10 @@ const   std::string Bureaucrat::getName()
     return (this->name);
 }
 
+//---***------------------------------ BUREAUCRAT METHODS --------------------------***---//
+
 void    Bureaucrat::incrGrade()
 {
-    std::cout << "Increment grade function called" << std::endl;
     grade--;
     if (grade <= 0)
         throw   GradeTooHighException();
@@ -78,14 +92,8 @@ void    Bureaucrat::incrGrade()
 
 void    Bureaucrat::decrGrade()
 {
-    std::cout << "decrement grade function called" << std::endl;
     grade++;
     if (grade > 150)
         throw   GradeTooLowException();
 }
 
-std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
-{
-    output << REF.getName() << " bureaucrat grade " << REF.getGrade();
-    return (output);
-}

@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/06/22 19:57:00 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 18:00:30 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 int main (void)
 {
-    Bureaucrat obj1(1, "Si blhich");
-    Bureaucrat obj2(obj1);
+    Bureaucrat Br(1, "Si blhich");
 
     try
     {
-        std::cout << obj1 << std::endl;
-        std::cout << obj2.getGrade() << std::endl;
-        while (obj2.getGrade() <= 151)
-            obj2.decrGrade();
-        std::cout << obj2 << std::endl;
+        std::cout << "----Disp1----\n" << Br << std::endl;
+        while (Br.getGrade() <= 151)
+            Br.decrGrade();
+        std::cout << "----Disp2----\n" << Br << std::endl;
     }
     catch(Bureaucrat::GradeTooHighException ex)
     {
