@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:59:34 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/22 18:07:34 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 21:06:50 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class ShrubberyCreationForm : public AForm
     std::string getTarget();
     
     ///@Method function to execute the form.
+    void    execute(Bureaucrat const & executor);
 };
 
 std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm &REF);

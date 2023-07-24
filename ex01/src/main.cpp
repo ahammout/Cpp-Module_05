@@ -6,18 +6,11 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 02:38:05 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:04:04 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/Bureaucrat.hpp"
-
-///-- 1 - Setting up a good main [GOOOOD]
-///-- 2 - Check if the a form can be signed by a buraucrat [ Exceptions checking ] [+GOOOD]
-///-- 3 - Check all exception cases [ ].
-///-- 4 - Overloading operator cat't init all attr [*]
-///-- 5 - Check the perfect place to catch the exception to ignore the abord of the program
-///-- 6 - Set up the the base then pass to next exe...
 
 int main (void)
 {
@@ -26,7 +19,7 @@ int main (void)
 
     try
     {
-        Bureaucrat Br(1550, "Si blhich");
+        Bureaucrat Br(45, "Si blhich");
         Br.signForm(form);
         while (Br.getGrade() > 1)
             Br.incrGrade();
@@ -34,9 +27,9 @@ int main (void)
     }
     catch(Bureaucrat::GradeTooHighException ex)
     {
-        std::cerr <<  ex.what() << '\n';
+        std::cerr <<  ex.what() << std::endl;
     }
-    catch (Form::GradeTooLowException ex)
+    catch(Bureaucrat::GradeTooLowException ex)
     {
         std::cout << ex.what() << std::endl;
     }
@@ -45,11 +38,6 @@ int main (void)
         std::cout << "Exception: Unexpected exception" << std::endl;
     }
     
-    // obj2.signForm(form);
-    // while (obj1.getGrade() > 1)
-    //     obj1.incrGrade();
-    // obj1.signForm(form);
-
     //------------------------------ NO EXCEPTION CATCHED ------------------------------//
 
     // try

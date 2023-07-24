@@ -6,13 +6,13 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/23 15:27:03 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 21:05:53 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/AForm.hpp"
 
-///@param constructures needs to to take the attributes to initialize, in the derived classes need to call the parametred constructor.
+//---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
 AForm::AForm() : _name("DefaultForm"), _signature(false), _sgrade(1), _exgrade(5)
 {
@@ -43,6 +43,8 @@ AForm::AForm(AForm &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(
     *this = SRC;
 }
 
+//---***------------------------------------- OVERLOADING OPERATORS ---------------------------------***---//
+
 AForm&  AForm::operator=(const AForm &RightHand)
 {
     std::string B;
@@ -51,7 +53,14 @@ AForm&  AForm::operator=(const AForm &RightHand)
     return (*this);
 }
 
-//------------------------------- EXEPTIONS METHODS ----------------------------/
+std::ostream    &operator<<(std::ostream &output, AForm &REF)
+{
+    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
+    return (output);
+}
+
+
+//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
@@ -63,7 +72,7 @@ const char* AForm::GradeTooLowException::what() const throw()
     return ("Grade is too low");
 }
 
-//------------------------------------------------- GETTERS ---------------------------------------------------/
+//---***------------------------------ GETTERS --------------------------***---//
 
 std::string    AForm::getName() const
 {
@@ -85,16 +94,19 @@ int   AForm::getExGrade() const
     return (this->_exgrade);
 }
 
+//---***------------------------------ AFORM METHODS --------------------------***---//
+
 void    AForm::beSigned(Bureaucrat &B)
 {
     if (B.getGrade() > this->getSgrade())
-        throw GradeTooHighException();
+        throw GradeTooLowException();
     this->_signature = true;
-    std::cout << "B has signed the form" << std::endl;
 }
 
-std::ostream    &operator<<(std::ostream &output, AForm &REF)
+void    AForm::execute(Bureaucrat const & executor) const
 {
-    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
-    return (output);
+    ///@brief this method checks if the bureacrat passed to it is able to executes the form 
+    /// Execute the form needs to be clear,
+    if (executor.getGrade() > this->getExGrade())
+        throw GradeTooLowException();
 }

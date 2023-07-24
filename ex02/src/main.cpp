@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:26 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/23 17:02:13 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 20:25:09 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,18 @@ int main(void)
     ShrubberyCreationForm   shForm("Home");
     try
     {
-        Br.signForm(shForm);
+        std::cout << "Beofre changing grade to 1" << std::endl;
+        Br.signForm(&shForm);
+        while (Br.getGrade() > 1)
+            Br.incrGrade();
+        std::cout << "After changing grade to 1" << std::endl;
+        Br.signForm(&shForm);
     }
-    catch(Bureaucrat::GradeTooHighException ex)
+    catch(const Bureaucrat::GradeTooHighException &ex)
     {
         std::cerr <<  ex.what() << '\n';
     }
-    catch(Bureaucrat::GradeTooLowException ex)
-    {
-        std::cerr <<  ex.what() << '\n';
-    }
-    catch(AForm::GradeTooHighException ex)
-    {
-        std::cerr <<  ex.what() << '\n';
-    }
-    catch(AForm::GradeTooLowException ex)
+    catch(const Bureaucrat::GradeTooLowException &ex)
     {
         std::cerr <<  ex.what() << '\n';
     }

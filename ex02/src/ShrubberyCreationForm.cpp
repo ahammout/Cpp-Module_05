@@ -6,11 +6,13 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 15:56:37 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/22 18:35:51 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 21:09:43 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/ShrubberyCreationForm.hpp"
+
+//---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", false, 5, 2)
 {
@@ -20,7 +22,6 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
         throw GradeTooHighException();
     this->_target = "DefaultTarget";
-    
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", false, 5, 2)
@@ -50,6 +51,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &SRC) : AForm
     
 }
 
+//---***------------------------------------- OVERLOADING OPERATORS ---------------------------------***---//
+
 ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm &RightHand)
 {
     ///@note Add Some shit here and rem you are in the derived class.
@@ -59,15 +62,24 @@ ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm &
     return (*this);
 }
 
-std::string ShrubberyCreationForm::getTarget()
-{
-    return (_target);
-}
-
 std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm &REF)
 {
     output << REF.getTarget() << std::endl << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
     return (output);
 }
 
+//---***------------------------------ GETTERS --------------------------***---//
+
+std::string ShrubberyCreationForm::getTarget()
+{
+    return (_target);
+}
+
+//---***------------------------------ SHRUBBERYCREATIONFORM METHODS --------------------------***---//
+
+
+void    ShrubberyCreationForm::execute(Bureaucrat const & executor)
+{
+    
+}
 ///@note method execute.

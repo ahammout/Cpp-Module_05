@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": 2278.1851851678157,
-      "y": 931.6184547167674,
-      "lastActivityTimestamp": 1690034781744,
+      "x": 1529.6492326149157,
+      "y": 1580.7748754758816,
+      "lastActivityTimestamp": 1690227863418,
       "meta": {}
     },
     {
@@ -79,9 +79,9 @@
       "typeName": "page"
     },
     {
-      "x": 500.5921385575298,
-      "y": -421.02438644012807,
-      "z": 0.43645544738145936,
+      "x": -225.24108872209558,
+      "y": -1285.2998734384328,
+      "z": 0.9382667673689128,
       "meta": {},
       "id": "camera:page:arCgGCtOOqLjdbixHoc5r",
       "typeName": "camera"
@@ -124,8 +124,8 @@
       "screenBounds": {
         "x": 0,
         "y": 0,
-        "w": 1677,
-        "h": 358
+        "w": 2150,
+        "h": 701
       },
       "zoomBrush": null,
       "isGridMode": false,
@@ -718,8 +718,8 @@
       "typeName": "shape"
     },
     {
-      "x": 1138.309981703758,
-      "y": 615.6350276470184,
+      "x": 1143.1560182022588,
+      "y": 615.1978851793702,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -851,8 +851,8 @@
         },
         "end": {
           "type": "point",
-          "x": 412,
-          "y": 0
+          "x": 403.64849723711995,
+          "y": 0.00416326159665914
         },
         "arrowheadStart": "none",
         "arrowheadEnd": "none",
@@ -1220,7 +1220,7 @@
       "meta": {},
       "type": "arrow",
       "parentId": "page:arCgGCtOOqLjdbixHoc5r",
-      "index": "aZV",
+      "index": "abV",
       "props": {
         "dash": "draw",
         "size": "m",
@@ -1238,9 +1238,13 @@
           "isExact": false
         },
         "end": {
-          "type": "point",
-          "x": 1081.4210239012814,
-          "y": -144.7254901875317
+          "type": "binding",
+          "boundShapeId": "shape:vy74Z2wklNpUSSNVuMR4P",
+          "normalizedAnchor": {
+            "x": 0.5037881484655786,
+            "y": 0.9953838079303331
+          },
+          "isExact": false
         },
         "arrowheadStart": "none",
         "arrowheadEnd": "none",
