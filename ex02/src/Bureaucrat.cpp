@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:57:56 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 20:57:19 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 23:22:36 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,18 @@ void    Bureaucrat::signForm(AForm *form)
 }
 
 ///@brief This Method it's suppose to execute the form, If the bureaucrat grade is too low then needs to throw an exception, otherwise execute the form.
+///@metjhod needs to be refactored.
 
-void    Bureaucrat::executeForm(AForm const & form);
+void    Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+        form.execute(*this);
+    }
+    catch
+    {
+        std::cout << *this.getName() << 
+    }
+}
 
 
