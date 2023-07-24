@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 01:58:31 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/24 02:38:05 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,19 @@ int main (void)
     {
         std::cerr <<  ex.what() << '\n';
     }
-    catch(Bureaucrat::GradeTooLowException ex)
+    catch (Form::GradeTooLowException ex)
     {
-        std::cerr <<  ex.what() << '\n';
+        std::cout << ex.what() << std::endl;
     }
-    catch (...)
+    catch(...)
     {
-        std::cerr << "Exeption: unexpected exception" << std::endl;
+        std::cout << "Exception: Unexpected exception" << std::endl;
     }
+    
+    // obj2.signForm(form);
+    // while (obj1.getGrade() > 1)
+    //     obj1.incrGrade();
+    // obj1.signForm(form);
 
     //------------------------------ NO EXCEPTION CATCHED ------------------------------//
 
