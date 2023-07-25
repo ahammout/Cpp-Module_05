@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 22:24:58 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:12:43 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat &RightHand)
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
 {
-    output << REF.getName() << " bureaucrat grade " << REF.getGrade();
+    output << "▶▶ " << REF.getName() << " bureaucrat grade " << REF.getGrade();
     return (output);
 }
 

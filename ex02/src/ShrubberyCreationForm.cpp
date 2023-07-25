@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 15:56:37 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 18:32:39 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:26:13 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", false, 145, 137)
 {
-    std::cout << this->getName() << " Default constructor called" << std::endl;
+    std::cout << "▷ " << this->getName() << " Default constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", false, 145, 137)
 {
-    std::cout << this->getName() << " Parametred constructor called" << std::endl;
+    std::cout << "▷ " << this->getName() << " Parametred constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
@@ -36,12 +36,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << this->getName() << " Destructor called" << std::endl;
+    std::cout << "◁ " << this->getName() << " Destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &SRC) : AForm(SRC.getName(), SRC.getSignature(), SRC.getExGrade(), SRC.getSgrade())
 {
-    std::cout << this->getName() << " Copy constructor called" << std::endl;
+    std::cout << "▷ " << this->getName() << " Copy constructor called" << std::endl;
     if (SRC.getSgrade() > 150 || SRC.getExGrade() > 150)
         throw GradeTooLowException();
     if (SRC.getSgrade() < 1 || SRC.getExGrade() < 1)
@@ -61,7 +61,7 @@ ShrubberyCreationForm&  ShrubberyCreationForm::operator=(ShrubberyCreationForm &
 
 std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm &REF)
 {
-    output << REF.getTarget() << std::endl << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
+    output << "▮▮▶ name ▶ " << REF.getName() << "\n    Signature ▶ " <<  REF.getSignature() << "\n    Sign grade ▶ " << REF.getSgrade() << "\n    Execute grade ▶ " << REF.getExGrade() << std::endl;
     return (output);
 }
 

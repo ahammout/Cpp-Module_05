@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 18:54:32 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:26:26 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 AForm::AForm() : _name("DefaultForm"), _signature(false), _sgrade(1), _exgrade(5)
 {
-    std::cout << "AForm " << "default constructor called" << std::endl;
+    std::cout << "▷ AForm " << "default constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
@@ -25,7 +25,7 @@ AForm::AForm() : _name("DefaultForm"), _signature(false), _sgrade(1), _exgrade(5
 
 AForm::AForm(const std::string n, bool _si, int _sg, int _exg): _name(n), _signature(_si), _sgrade(_sg), _exgrade(_exg)
 {
-    std::cout << "AForm " << "parametered constructor called" << std::endl;
+    std::cout << "▷ AForm " << "parametered constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
@@ -34,12 +34,12 @@ AForm::AForm(const std::string n, bool _si, int _sg, int _exg): _name(n), _signa
 
 AForm::~AForm()
 {
-    std::cout << "AForm " << "destructor called" << std::endl;
+    std::cout << "◁ AForm " << "destructor called" << std::endl;
 }
 
 AForm::AForm(AForm &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(SRC._sgrade), _exgrade(SRC._exgrade)
 {
-    std::cout << "AForm "<< "copy constructor called" << std::endl;
+    std::cout << "▷ AForm "<< "copy constructor called" << std::endl;
     *this = SRC;
 }
 
@@ -55,7 +55,7 @@ AForm&  AForm::operator=(const AForm &RightHand)
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF)
 {
-    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
+    output << "▮▮▶ name ▶ " << REF.getName() << "\n    Signature ▶ " <<  REF.getSignature() << "\n    Sign grade ▶ " << REF.getSgrade() << "\n    Execute grade ▶ " << REF.getExGrade() << std::endl;
     return (output);
 }
 

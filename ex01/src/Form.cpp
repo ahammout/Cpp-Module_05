@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 22:25:19 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:15:43 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Form&   Form::operator=(const Form &RightHand)
 
 std::ostream    &operator<<(std::ostream &output, Form &REF)
 {
-    output << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getSgrade() << std::endl << REF.getExGrade() << std::endl;
+    output << "▶▶ name ▶ " << REF.getName() << "| Signature ▶ " <<  REF.getSignature() << "| Sign grade ▶ " << REF.getSgrade() << "| Execute grade ▶ " << REF.getExGrade() << std::endl;
     return (output);
 }
 

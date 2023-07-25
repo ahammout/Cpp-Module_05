@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:57:56 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 22:06:51 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:27:16 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 
 Bureaucrat::Bureaucrat() : name("Aghir m9adam"), grade(150)
 {
-    std::cout << "Bureaucrat: " << this->name << " default constructor called" << std::endl;
+    std::cout << "▷ Bureaucrat: " << this->name << " default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(int gr, std::string n) : name(n), grade(gr)
 {
-    std::cout << "Bureaucrat: " << this->name << " parametered constructor called" << std::endl;
+    std::cout << "▷ Bureaucrat: " << this->name << " parametered constructor called" << std::endl;
     if (gr <= 0)
         throw   GradeTooHighException();
     if (gr > 150)
@@ -34,12 +34,12 @@ Bureaucrat::Bureaucrat(int gr, std::string n) : name(n), grade(gr)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat: " << this->name << " destructor called" << std::endl;
+    std::cout << "◁ Bureaucrat: " << this->name << " destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &SRC): name("Lm9adam")
 {
-    std::cout << "Bureaucrat: " << this->name << " copy constructor called" << std::endl;
+    std::cout << "▷ Bureaucrat: " << this->name << " copy constructor called" << std::endl;
     *this = SRC;
 }
 
@@ -57,7 +57,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat &RightHand)
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
 {
-    output << REF.getName() << " bureaucrat grade " << REF.getGrade();
+    output << "▶▶ "<< REF.getName() << " bureaucrat grade " << REF.getGrade() << std::endl;
     return (output);
 }
 
@@ -103,16 +103,17 @@ void    Bureaucrat::decrGrade()
 }
 
 ///@note make this function take a const reference to AForm derived object.
-void    Bureaucrat::signForm(AForm *form)
+///@ref need to test it.
+void    Bureaucrat::signForm(AForm &form)
 {
     try
     {
-        form->beSigned(*this);
-        std::cout << "√: " << this->getName() << " Signed " << form->getName() <<std::endl;
+        form.beSigned(*this);
+        std::cout << "√: " << this->getName() << " Signed " << form.getName() <<std::endl;
     }
     catch (const AForm::GradeTooLowException &ex)
     {
-        std::cerr << "╳: " << this->getName() << " couldn't sign " << form->getName() << " because his grade is low!" <<std::endl;
+        std::cerr << "╳: " << this->getName() << " couldn't sign " << form.getName() << " because his grade is low!" <<std::endl;
     }
     catch (...)
     {

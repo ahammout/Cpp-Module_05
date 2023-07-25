@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 18:00:30 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:11:39 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int main (void)
 
     try
     {
-        std::cout << "----Disp1----\n" << Br << std::endl;
+        std::cout << Br << std::endl;
         while (Br.getGrade() <= 151)
             Br.decrGrade();
-        std::cout << "----Disp2----\n" << Br << std::endl;
+        std::cout << Br << std::endl;
     }
     catch(Bureaucrat::GradeTooHighException ex)
     {
@@ -33,7 +33,7 @@ int main (void)
     }
     catch (...)
     {
-        std::cerr << "Exeption: unexpected exception" << std::endl;
+        std::cerr << "╳: unexpected error" << std::endl;
     }
     return (0);
 }

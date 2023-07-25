@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:26 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 21:15:46 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:27:52 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,23 @@ int main(void)
     RobotomyRequestForm     RobForm("Robo");
     PresidentialPardonForm  PreForm("Prisoner");
  
+    std::cout << Br;
+    std::cout << Br1;
+    std::cout << Br2;
+    std::cout << shForm;
+    std::cout << RobForm;
+    std::cout << PreForm;
+
+    
     try
     {
-        Br.signForm(&shForm);
+        Br.signForm(shForm);
         while (Br.getGrade() > 130)
             Br.incrGrade();
         //--- SIGN FORMS -----/
-        Br.signForm(&shForm);
-        Br1.signForm(&RobForm);
-        Br2.signForm(&PreForm);
+        Br.signForm(shForm);
+        Br1.signForm(RobForm);
+        Br2.signForm(PreForm);
         
         //--- EXEC FORMS -----/
         Br.executeForm(shForm);
@@ -57,7 +65,7 @@ int main(void)
     }
     catch (...)
     {
-        std::cerr << "Exeption: unexpected exception" << std::endl;
+        std::cerr << "╳: unexpected error" << std::endl;
     } 
    //-------------- TESTs TO CHECK THE ShrubberyCreationForm Derived class ------------------/
     ///@note Display attributes
@@ -81,11 +89,11 @@ int main(void)
     // ShrubberyCreationForm   shForm3;
 
     // shForm3 = shForm;
-    // // std::cout << "The name of the form: "<< shForm3.getName() << std::endl;
-    // // std::cout << "Signature status: " << shForm3.getSignature() << std::endl;
-    // // std::cout << "Required grade to sign: " << shForm3.getSgrade() << std::endl;
-    // // std::cout << "Required grade to execute: " << shForm3.getExGrade() << std::endl;
-    // // std::cout << "The target: " << shForm3.getTarget() << std::endl;
+    // std::cout << "The name of the form: "<< shForm3.getName() << std::endl;
+    // std::cout << "Signature status: " << shForm3.getSignature() << std::endl;
+    // std::cout << "Required grade to sign: " << shForm3.getSgrade() << std::endl;
+    // std::cout << "Required grade to execute: " << shForm3.getExGrade() << std::endl;
+    // std::cout << "The target: " << shForm3.getTarget() << std::endl;
     // std::cout << shForm3 << std::endl;
     
     return (0);

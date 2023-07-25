@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:58:22 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 20:14:21 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 22:53:14 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class   Bureaucrat
     void                incrGrade();
     void                decrGrade();
 
-    void    signForm(AForm *form);
+    void    signForm(AForm & form);
     void    executeForm(AForm const & form);
 };
 

@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 20:41:57 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 21:12:06 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 23:26:24 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", false, 25, 5)
 {
-    std::cout << this->getName() << " Default constructor called" << std::endl;
+    std::cout << "▷ " << this->getName() << " Default constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
@@ -26,7 +26,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", false, 25, 5)
 {
-    std::cout << this->getName() << " Parametred constructor called" << std::endl;
+    std::cout << "▷ " << this->getName() << " Parametred constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
@@ -36,12 +36,12 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << this->getName() << " Destructor called" << std::endl;
+    std::cout << "◁ " << this->getName() << " Destructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &SRC)
 {
-    std::cout << this->getName() << " Copy constructor called" << std::endl;
+    std::cout << "▷ " << this->getName() << " Copy constructor called" << std::endl;
     if (SRC.getSgrade() > 150 || SRC.getExGrade() > 150)
         throw GradeTooLowException();
     if (SRC.getSgrade() < 1 || SRC.getExGrade() < 1)
@@ -60,7 +60,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 
 std::ostream    &operator<<(std::ostream &output, PresidentialPardonForm &REF)
 {
-    output << REF.getTarget() << std::endl << REF.getName() << std::endl <<  REF.getSignature() << std::endl << REF.getExGrade() << std::endl << REF.getSgrade() << std::endl;
+    output << "▮▮▶ name ▶ " << REF.getName() << "\n    Signature ▶ " <<  REF.getSignature() << "\n    Sign grade ▶ " << REF.getSgrade() << "\n    Execute grade ▶ " << REF.getExGrade() << std::endl;
     return (output);
 }
 
