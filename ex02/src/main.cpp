@@ -6,29 +6,46 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:19:26 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 20:25:09 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:15:46 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
 ///@note Refactor the method signForm in beraucrat class
+///@note Make all the messages that are printed in the stdout combined with some unicode character to make it clear!
+///@note need to do deep test to test the constructors and overloading operators.
 
 int main(void)
 {
     ///@note Test the abstract class ShrubberyCreationForm.
     Bureaucrat  Br(150, "Mark");
-    ShrubberyCreationForm   shForm("Home");
+    Bureaucrat  Br1(40, "Elon");
+    Bureaucrat  Br2(15, "Trump");
+    ShrubberyCreationForm   shForm("Zitone");
+    RobotomyRequestForm     RobForm("Robo");
+    PresidentialPardonForm  PreForm("Prisoner");
+ 
     try
     {
-        std::cout << "Beofre changing grade to 1" << std::endl;
         Br.signForm(&shForm);
-        while (Br.getGrade() > 1)
+        while (Br.getGrade() > 130)
             Br.incrGrade();
-        std::cout << "After changing grade to 1" << std::endl;
+        //--- SIGN FORMS -----/
         Br.signForm(&shForm);
+        Br1.signForm(&RobForm);
+        Br2.signForm(&PreForm);
+        
+        //--- EXEC FORMS -----/
+        Br.executeForm(shForm);
+        Br1.executeForm(RobForm);
+        Br2.executeForm(PreForm);
+        
+        
     }
     catch(const Bureaucrat::GradeTooHighException &ex)
     {
@@ -50,7 +67,7 @@ int main(void)
     // std::cout << "Required   to execute: " << shForm.getExGrade() << std::endl;
     // std::cout << "The target: " << shForm.getTarget() << std::endl;
 
-    // ///@note Check The overloaded operators and other Constuctors and methods
+    ///@note Check The overloaded operators and other Constuctors and methods
     // std::cout << "----------------------- Copy Constructor -------------------------\n" << std::endl;
     // ShrubberyCreationForm   shFormTmp(shForm);
 

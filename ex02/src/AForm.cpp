@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 21:05:53 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 18:54:32 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ std::ostream    &operator<<(std::ostream &output, AForm &REF)
     return (output);
 }
 
-
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
-
 const char* AForm::GradeTooHighException::what() const throw()
 {
     return ("Grade is too high");
@@ -105,8 +102,7 @@ void    AForm::beSigned(Bureaucrat &B)
 
 void    AForm::execute(Bureaucrat const & executor) const
 {
-    ///@brief this method checks if the bureacrat passed to it is able to executes the form 
-    /// Execute the form needs to be clear,
-    if (executor.getGrade() > this->getExGrade())
+    if ((this->getSignature() == false) && (executor.getGrade() > this->getExGrade()))
         throw GradeTooLowException();
+    std::cout << "√: Form Executed" << std::endl;
 }

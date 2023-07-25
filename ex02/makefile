@@ -6,7 +6,7 @@
 #    By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/24 18:09:01 by ahammout          #+#    #+#              #
-#    Updated: 2023/06/24 18:09:19 by ahammout         ###   ########.fr        #
+#    Updated: 2023/07/25 15:55:36 by ahammout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ clean:
 	@echo "$(COLOUR_RED)Remove objects$(COLOUR_END)"
 	@rm -fr $(OBJ_DIR)
 	@rm -fr $(OBJS)
+	@rm -fr *_shrubbery
 
 fclean: clean
 	@echo "$(COLOUR_RED)Remove executable$(COLOUR_END)"

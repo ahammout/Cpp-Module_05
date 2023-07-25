@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/23 17:00:34 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 20:06:06 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 #include"Bureaucrat.hpp"
 
 class Bureaucrat;
-
-///@b Brief Make this class an abstract class
-class   AForm 
+class   AForm
 {
     private:
     const std::string _name;
@@ -54,7 +52,7 @@ class   AForm
     int getExGrade() const;
 
     void    beSigned(Bureaucrat &B);
-    void    execute(Bureaucrat const & executor) const;
+    virtual void    execute(Bureaucrat const & executor) const;
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);

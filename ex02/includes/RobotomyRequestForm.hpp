@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 21:25:49 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 21:30:07 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 18:40:50 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,17 @@ class   RobotomyRequestForm : public AForm
 
     RobotomyRequestForm(RobotomyRequestForm &SRC);
 
+    class GradeTooLowException : std::exception
+    {
+        public:
+        const char* what() const throw();
+    };
+
     RobotomyRequestForm &operator=(RobotomyRequestForm &RightHand);
 
-    std::string getTarget();
+    std::string getTarget() const;
 
-    void    execute(Bureaucrat const &executor )
-}
+    void    execute(Bureaucrat const &executor ) const;
+};
 
 #endif

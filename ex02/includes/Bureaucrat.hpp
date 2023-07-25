@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:58:22 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 20:56:42 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 20:14:21 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ class   Bureaucrat
         public:
         const char* what() const throw();
     };
-    int                 getGrade();
-    const std::string   getName();
+    int                 getGrade() const;
+    const std::string   getName() const;
     void                incrGrade();
     void                decrGrade();
 
