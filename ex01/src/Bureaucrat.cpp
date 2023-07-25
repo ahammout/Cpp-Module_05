@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 16:39:48 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 22:24:58 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 Bureaucrat::Bureaucrat() : name("Aghir m9adam"), grade(150)
 {
-    std::cout << "Bureaucrat: " << this->name << " default constructor called" << std::endl;
+    std::cout << "▷ Bureaucrat: " << this->name << " default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(int gr, std::string n) : name(n), grade(gr)
 {
-    std::cout << "Bureaucrat: " << this->name << " parametered constructor called" << std::endl;
+    std::cout << "▷ Bureaucrat: " << this->name << " parametered constructor called" << std::endl;
     if (gr <= 0)
         throw   GradeTooHighException();
     if (gr > 150)
@@ -30,12 +30,12 @@ Bureaucrat::Bureaucrat(int gr, std::string n) : name(n), grade(gr)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Bureaucrat: " << this->name << " destructor called" << std::endl;
+    std::cout << "◁ Bureaucrat: " << this->name << " destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &SRC): name("Lm9adam")
 {
-    std::cout << "Bureaucrat: " << this->name << " copy constructor called" << std::endl;
+    std::cout << "▷ Bureaucrat: " << this->name << " copy constructor called" << std::endl;
     *this = SRC;
 }
 
@@ -97,22 +97,20 @@ void    Bureaucrat::decrGrade()
         throw   GradeTooLowException();
 }
 
-///-- @brief this function sign the form passed to it as a param, if the sign method of the form throws an \exception then the this function catchs it, and stops the exechution of the program
-
 void    Bureaucrat::signForm(Form &form)
 {
     try
     {
         form.beSigned(*this);
-        std::cout << this->getName() << " Signed " << form.getName() << std::endl;
+        std::cout <<  "√: " << this->getName() << " Signed " << form.getName() << std::endl;
     }
     catch (Form::GradeTooLowException &ex)
     {
-        std::cerr << this->getName() << " couldn't sign " << form.getName() << " because his grade is low!" << std::endl;
+        std::cerr <<  "╳: " << this->getName() << " couldn't sign " << form.getName() << " because his " << ex.what() << std::endl;
     }
     catch (...)
     {
-        std::cerr << "Exception: unexpected exception" << std::endl;
+        std::cerr << "╳: unexpected error" << std::endl;
     }
 }
 

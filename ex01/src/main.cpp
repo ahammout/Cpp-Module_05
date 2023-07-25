@@ -6,11 +6,14 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 17:37:29 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 20:04:04 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 22:20:28 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../includes/Bureaucrat.hpp"
+
+///@note Change the error messages and exception warnings.
+///@note clean the code and the main.
 
 int main (void)
 {
@@ -35,7 +38,7 @@ int main (void)
     }
     catch(...)
     {
-        std::cout << "Exception: Unexpected exception" << std::endl;
+        std::cout << "╳: " << "Unexpected error" << std::endl;
     }
     
     //------------------------------ NO EXCEPTION CATCHED ------------------------------//
@@ -57,7 +60,7 @@ int main (void)
     // }
     // catch (...)
     // {
-    //     std::cerr << "Exeption: unexpected exception" << std::endl;
+    //     std::cerr << "╳: " << Unexpected error" << std::endl;
     // }
 
     return (0);

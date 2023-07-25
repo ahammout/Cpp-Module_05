@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 18:50:17 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/24 02:00:25 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/25 22:25:19 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 
 Form::Form() : _name("Shahdat sokna"), _signature(false), _sgrade(1), _exgrade(5)
 {   
-    std::cout << "Form: " << _name << " default constructor called" << std::endl;
+    std::cout << "▷ Form: " << _name << " default constructor called" << std::endl;
 }
 
 Form::Form(std::string n, bool _si, int _sg, int _exg): _name(n), _signature(_si), _sgrade(_sg), _exgrade(_exg)
 {
-    std::cout << "Form: " << _name << " parametered constructor called" << std::endl;
+    std::cout << "▷Form: " << _name << " parametered constructor called" << std::endl;
 }
 
 Form::~Form()
 {
-    std::cout << "Form: " << _name << " destructor called" << std::endl;
+    std::cout << "◁ Form: " << _name << " destructor called" << std::endl;
 }
 
 Form::Form(Form &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(SRC._sgrade), _exgrade(SRC._exgrade)
 {
-    std::cout << "Form: " << _name << " copy constructor called" << std::endl;
+    std::cout << "▷ Form: " << _name << " copy constructor called" << std::endl;
     *this = SRC;
 }
 
