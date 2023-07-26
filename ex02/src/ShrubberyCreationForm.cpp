@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 15:56:37 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:26:13 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:58:11 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,6 @@ std::string ShrubberyCreationForm::getTarget() const
 }
 
 //---***------------------------------ SHRUBBERYCREATIONFORM METHODS --------------------------***---//
-
-    ///@brief The function to execute the form
-    //-- Creating a file named <target>_shrubbery and copy the ASCCI tree to it.
-    ///@note Open the file to read from it,
-    // create a new file with name [target]_shrubbery and transform the data of the file to it.
-    // open file with ap 
     
 void    ShrubberyCreationForm::CreateShrubbery(std::string target) const
 {
@@ -124,4 +118,3 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     CreateShrubbery(_target);
     std::cout << "√: " << this->getName() << " executed successfully" << std::endl; 
 }
-///@note method execute.

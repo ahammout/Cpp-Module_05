@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:57:56 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:27:16 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/26 17:16:49 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ void    Bureaucrat::decrGrade()
         throw   GradeTooLowException();
 }
 
-///@note make this function take a const reference to AForm derived object.
-///@ref need to test it.
 void    Bureaucrat::signForm(AForm &form)
 {
     try
@@ -127,7 +125,6 @@ void    Bureaucrat::executeForm(AForm const & form)
     {
         form.execute(*this);
     }
-    ///@ref need to implement the what() method exception for all the derived classes.
     catch (AForm::GradeTooLowException &ex)
     {
         std::cout << "╳: " << this->getName() << ex.what() << std::endl;
