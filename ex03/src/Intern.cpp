@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:11:05 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/26 18:47:32 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/26 21:31:59 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,14 @@ int    Intern::getSilent()
     * so there is specific names to be passed to the function parameter, then need an array of strings and put all the possible Form Names inside it
     * and compare them with the parameter passed to the method.
     ! If the name passed as parameter doesn't exist, print an explicit error message
+    * Now to handle the returns cases withoud using if/else forest needs to declare an array of form objects, then return it after comparing the name passed as param
+    * With the name inside the array, to return the appropriat object will use the same index of the array of strings. 
 */
 
 AForm*  Intern::makeForm(std::string FormName, std::string TargetName)
 {
     int i = 0;
-    std::string FormNames[3] = { "robotomy request",
-                                 "President request",
-                                 "Shrubbery request"};
-
-    while (i <= 4)
-    {
-        if (FormNames[i].compare(FormName) == 0)
-    }
+    std::string FormNames[3] = { "robotomy request", "President request", "Shrubbery request"};
+    
+    return ();
 }
