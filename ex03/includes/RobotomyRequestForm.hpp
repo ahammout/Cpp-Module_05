@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 21:25:49 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 18:40:50 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:13:08 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ class   RobotomyRequestForm : public AForm
 
     void    execute(Bureaucrat const &executor ) const;
 };
+
+std::ostream &operator<<(std::ostream &output, RobotomyRequestForm &REF);
 
 #endif

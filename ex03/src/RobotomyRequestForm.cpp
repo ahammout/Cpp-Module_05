@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 16:49:15 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:26:22 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:35:58 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ std::ostream    &operator<<(std::ostream &output, RobotomyRequestForm &REF)
     return (output);
 }
 
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char* RobotomyRequestForm::GradeTooLowException::what() const throw()
 {

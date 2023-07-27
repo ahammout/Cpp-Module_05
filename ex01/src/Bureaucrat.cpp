@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:12:43 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:39:20 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 //---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
-Bureaucrat::Bureaucrat() : name("Aghir m9adam"), grade(150)
+Bureaucrat::Bureaucrat() : name("Random Bureaucrat"), grade(150)
 {
     std::cout << "▷ Bureaucrat: " << this->name << " default constructor called" << std::endl;
+    if (this->grade <= 0)
+        throw   GradeTooHighException();
+    if (this->grade > 150)
+        throw   GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(int gr, std::string n) : name(n), grade(gr)
 {
     std::cout << "▷ Bureaucrat: " << this->name << " parametered constructor called" << std::endl;
-    if (gr <= 0)
+    if (this->grade <= 0)
         throw   GradeTooHighException();
-    if (gr > 150)
+    if (this->grade > 150)
         throw   GradeTooLowException();
 }
 
@@ -33,7 +37,7 @@ Bureaucrat::~Bureaucrat()
     std::cout << "◁ Bureaucrat: " << this->name << " destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &SRC): name("Lm9adam")
+Bureaucrat::Bureaucrat(Bureaucrat &SRC): name(SRC.getName()), grade(SRC.getGrade())
 {
     std::cout << "▷ Bureaucrat: " << this->name << " copy constructor called" << std::endl;
     *this = SRC;
@@ -57,7 +61,7 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
     return (output);
 }
 
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char*     Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -113,5 +117,3 @@ void    Bureaucrat::signForm(Form &form)
         std::cerr << "╳: unexpected error" << std::endl;
     }
 }
-
-//---***------------------------------------------------------------------------------------------------------------------------------***---//

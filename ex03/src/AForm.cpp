@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 16:08:16 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:26:26 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:36:37 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
-AForm::AForm() : _name("DefaultForm"), _signature(false), _sgrade(1), _exgrade(5)
+AForm::AForm() : _name("Random Form"), _signature(false), _sgrade(1), _exgrade(5)
 {
     std::cout << "▷ AForm " << "default constructor called" << std::endl;
     if (this->getSgrade() > 150 || this->getExGrade() > 150)
@@ -47,9 +47,7 @@ AForm::AForm(AForm &SRC): _name(SRC._name), _signature(SRC._signature), _sgrade(
 
 AForm&  AForm::operator=(const AForm &RightHand)
 {
-    std::string B;
-    
-    B = RightHand.getName();
+    (void) RightHand;
     return (*this);
 }
 
@@ -58,6 +56,8 @@ std::ostream    &operator<<(std::ostream &output, AForm &REF)
     output << "▮▮▶ name ▶ " << REF.getName() << "\n    Signature ▶ " <<  REF.getSignature() << "\n    Sign grade ▶ " << REF.getSgrade() << "\n    Execute grade ▶ " << REF.getExGrade() << std::endl;
     return (output);
 }
+
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char* AForm::GradeTooHighException::what() const throw()
 {

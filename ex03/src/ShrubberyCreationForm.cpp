@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 15:56:37 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/26 14:57:35 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:36:04 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm &REF)
     return (output);
 }
 
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char *ShrubberyCreationForm::GradeTooLowException::what() const throw()
 {
@@ -81,19 +81,12 @@ std::string ShrubberyCreationForm::getTarget() const
 
 //---***------------------------------ SHRUBBERYCREATIONFORM METHODS --------------------------***---/
     
+    
 void    ShrubberyCreationForm::CreateShrubbery(std::string target) const
 {
-    std::fstream infile;
     std::fstream outfile;
     std::string filename;
-    std::string tmp;
 
-    infile.open("AsciiTree", std::ios_base::in);
-    if (!infile.is_open())
-    {
-        std::cout << "╳: Error: can't open the file" << std::endl;
-        exit(0);
-    }
     filename = target;
     filename.append("_shrubbery");
     outfile.open(filename, std::ios_base::out);
@@ -102,14 +95,59 @@ void    ShrubberyCreationForm::CreateShrubbery(std::string target) const
         std::cout << "╳: Error: can't open the file" << std::endl;
         exit(0);
     }
-    while (getline(infile, tmp, '\0'))
-    {
-        outfile << tmp;
-        tmp.erase();
-    }
-    infile.close();
+    outfile << "###########################'`################################" << std::endl;
+    outfile << "###########################  V##'############################" << std::endl;
+    outfile << "#########################V'  `V  ############################" << std::endl;
+    outfile << "########################V'      ,############################" << std::endl;
+    outfile << "#########`#############V      ,A###########################V" << std::endl;
+    outfile << "########' `###########V      ,###########################V',#" << std::endl;
+    outfile << "######V'   ###########l      ,####################V~~~~'',###" << std::endl;
+    outfile << "#####V'    ###########l      ##P' ###########V~~'   ,A#######" << std::endl;
+    outfile << "#####l      d#########l      V'  ,#######V~'       A#########" << std::endl;
+    outfile << "#####l      ##########l         ,####V''         ,###########" << std::endl;
+    outfile << "#####l        `V######l        ,###V'   .....;A##############" << std::endl;
+    outfile << "#####A,         `######A,     ,##V' ,A#######################" << std::endl;
+    outfile << "#######A,        `######A,    #V'  A########'''''##########''" << std::endl;
+    outfile << "##########,,,       `####A,           `#''           '''  ,,," << std::endl;
+    outfile << "#############A,                               ,,,     ,######" << std::endl;
+    outfile << "######################oooo,                 ;####, ,#########" << std::endl;
+    outfile << "##################P'                   A,   ;#####V##########" << std::endl;
+    outfile << "#####P'    ''''       ,###             `#,     `V############" << std::endl;
+    outfile << "##P'                ,d###;              ##,       `V#########" << std::endl;
+    outfile << "##########A,,   #########A              )##,    ##A,..,ooA###" << std::endl;
+    outfile << "#############A, Y#########A,            )####, ,#############" << std::endl;
+    outfile << "###############A ############A,        ,###### ##############" << std::endl;
+    outfile << "###############################       ,#######V##############" << std::endl;
+    outfile << "###############################      ,#######################" << std::endl;
+    outfile << "##############################P    ,d########################" << std::endl;
+    outfile << "##############################'    d#########################" << std::endl;
+    outfile << "##############################     ##########################" << std::endl;
+    outfile << "##############################     ##########################" << std::endl;
+    outfile << "#############################P     ##########################" << std::endl;
+    outfile << "#############################'     ##########################" << std::endl;
+    outfile << "############################P      ##########################" << std::endl;
+    outfile << "###########################P'     ;##########################" << std::endl;
+    outfile << "###########################'     ,###########################" << std::endl;
+    outfile << "##########################       ############################" << std::endl;
+    outfile << "#########################       ,############################" << std::endl;
+    outfile << "########################        d###########P'    `Y#########" << std::endl;
+    outfile << "#######################        ,############        #########" << std::endl;
+    outfile << "######################        ,#############        #########" << std::endl;
+    outfile << "#####################        ,##############b.    ,d#########" << std::endl;
+    outfile << "####################        ,################################" << std::endl;
+    outfile << "###################         #################################" << std::endl;
+    outfile << "##################          #######################P'  `V##P'" << std::endl;
+    outfile << "#######P'     `V#           ###################P'           #" << std::endl;
+    outfile << "#####P'                    ,#################P'             #" << std::endl;
+    outfile << "###P'                      d##############P''               #" << std::endl;
+    outfile << "##P'                       V##############'                 #" << std::endl;
+    outfile << "#P'                         `V###########'                  #" << std::endl;
+    outfile << "#'                             `V##P'                       #" << std::endl;
+    outfile << "_____________________________________________________________" << std::endl;
+    outfile << "#############################################################" << std::endl;
     outfile.close();
 }
+
 
 void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {

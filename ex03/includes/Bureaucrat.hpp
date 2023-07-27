@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:58:22 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 22:53:14 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:12:21 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 #include<iostream>
 #include"AForm.hpp"
-
-///@note  every bureaucrat needs to sign a form there is new rules for bureaucrates, so there is more job !!
-
 
 class AForm;
 class   Bureaucrat

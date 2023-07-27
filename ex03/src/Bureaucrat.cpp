@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:57:56 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/26 17:16:49 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:36:55 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 //---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
-Bureaucrat::Bureaucrat() : name("Aghir m9adam"), grade(150)
+Bureaucrat::Bureaucrat() : name("Random Bureaucrat"), grade(150)
 {
     std::cout << "▷ Bureaucrat: " << this->name << " default constructor called" << std::endl;
 }
@@ -37,7 +37,7 @@ Bureaucrat::~Bureaucrat()
     std::cout << "◁ Bureaucrat: " << this->name << " destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &SRC): name("Lm9adam")
+Bureaucrat::Bureaucrat(Bureaucrat &SRC): name(SRC.getName()), grade(SRC.getGrade())
 {
     std::cout << "▷ Bureaucrat: " << this->name << " copy constructor called" << std::endl;
     *this = SRC;
@@ -61,7 +61,7 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
     return (output);
 }
 
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char*     Bureaucrat::GradeTooHighException::what() const throw()
 {

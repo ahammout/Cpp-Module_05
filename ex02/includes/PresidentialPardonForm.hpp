@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 20:41:55 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 20:48:29 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:09:37 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ class PresidentialPardonForm : public AForm
 
     void    execute(Bureaucrat const &executor ) const;
 };
+
+std::ostream    &operator<<(std::ostream &output, PresidentialPardonForm &REF);
 
 #endif

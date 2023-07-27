@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:37:33 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/27 15:15:48 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:12:09 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class   AForm
     public:
     AForm();
     AForm(std::string n, bool _si, int _sg, int _exg);
-    virtual ~AForm();
+    virtual ~AForm() = 0;
 
     AForm(AForm &SRC);
     AForm&   operator=(const AForm &RightHand);
@@ -52,7 +52,7 @@ class   AForm
     int getExGrade() const;
 
     void    beSigned(Bureaucrat &B);
-    virtual void    execute(Bureaucrat const & executor) const = 0;
+    virtual void    execute(Bureaucrat const & executor) const;
 };
 
 std::ostream    &operator<<(std::ostream &output, AForm &REF);

@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 20:41:57 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:26:24 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:35:35 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
         throw GradeTooLowException();
     if (this->getSgrade() < 1 || this->getExGrade() < 1)
         throw GradeTooHighException();
-    this->_target = "DefaultTarget";
+    this->_target = "Random Target";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", false, 25, 5)
@@ -64,7 +64,7 @@ std::ostream    &operator<<(std::ostream &output, PresidentialPardonForm &REF)
     return (output);
 }
 
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char* PresidentialPardonForm::GradeTooLowException::what() const throw()
 {

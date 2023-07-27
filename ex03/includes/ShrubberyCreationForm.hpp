@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 14:59:34 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 20:14:29 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:19:09 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include<fstream>
 #include"AForm.hpp"
 #include"Bureaucrat.hpp"
-
-///@note Begin Declaring the derived CLASS ShrubberyCreationForm 
 
 class ShrubberyCreationForm : public AForm
 {
@@ -42,7 +40,6 @@ class ShrubberyCreationForm : public AForm
         const char* what() const throw();
     };
     
-    ///@Method function to execute the form.
     void    execute(Bureaucrat const & executor) const;
     void    CreateShrubbery(std::string target) const;
 };

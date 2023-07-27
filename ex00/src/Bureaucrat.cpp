@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:03:28 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/25 23:12:00 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:39:34 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 //---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
-Bureaucrat::Bureaucrat(): name("lm9adem"), grade(150)
+Bureaucrat::Bureaucrat(): name("Random Bureaucrat"), grade(150)
 {
     std::cout << "▷ Bureaucrat: " << this->name << " default constructor called" << std::endl;
+    if (this->grade <= 0)
+        throw   GradeTooHighException();
+    if (this->grade > 150)
+        throw   GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(int gr, std::string n): name(n), grade(gr)
@@ -57,7 +61,7 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat &REF)
     return (output);
 }
 
-//---***------------------------------ OVERLOADING EXCEPTION METHODS --------------------------***---//
+//---***------------------------------ EXCEPTION METHODS --------------------------***---//
 
 const char*     Bureaucrat::GradeTooHighException::what() const throw()
 {
