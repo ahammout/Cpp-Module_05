@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 15:11:05 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/26 21:31:59 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:28:47 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include"../includes/ShrubberyCreationForm.hpp"
 #include"../includes/RobotomyRequestForm.hpp"
 #include"../includes/PresidentialPardonForm.hpp"
+#include"../includes/AForm.hpp"
 
 //---***------------------------------------- CONSTRUCTORS ---------------------------------***---//
 
@@ -36,15 +37,8 @@ Intern::~Intern(){
 
 Intern& Intern::operator=(Intern &RightHand)
 {
-    this->silent = RightHand.getSilent();
+    (void) RightHand;
     return (*this);
-}
-
-//---***------------------------------ GETTERS --------------------------***---//
-
-int    Intern::getSilent()
-{
-    return (silent);
 }
 
 //---***------------------------------ INTERN METHODS --------------------------***---//
@@ -61,12 +55,40 @@ int    Intern::getSilent()
     ! If the name passed as parameter doesn't exist, print an explicit error message
     * Now to handle the returns cases withoud using if/else forest needs to declare an array of form objects, then return it after comparing the name passed as param
     * With the name inside the array, to return the appropriat object will use the same index of the array of strings. 
+    ! Needs to free the array of form objects.
 */
+void    deleteForms(AForm *Forms[], int j)
+{
+    for (int i=0;i < 3;i++)
+    {   
+        if (i == j)
+            continue;
+        delete Forms[i];
+    }
+}
+
+const char *Intern::FormNotExist::what() const throw()
+{
+    return ("╳: Form name doesn't exist");
+}
 
 AForm*  Intern::makeForm(std::string FormName, std::string TargetName)
 {
-    int i = 0;
     std::string FormNames[3] = { "robotomy request", "President request", "Shrubbery request"};
-    
-    return ();
+    AForm*  Forms[3] = {new RobotomyRequestForm(TargetName), new PresidentialPardonForm(TargetName), new ShrubberyCreationForm(TargetName)};
+    int i = 0;
+
+    while (i < 4)
+    {
+        if (FormNames[i].compare(FormName) == 0)
+        {
+            std::cout << "√: Intern creates " << FormName << std::endl;
+            deleteForms(Forms, i);
+            return (Forms[i]);
+        }
+        i++;
+    }
+    deleteForms(Forms, 8);
+    throw FormNotExist();
+    return (NULL);
 }

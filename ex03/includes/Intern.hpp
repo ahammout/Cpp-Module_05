@@ -6,7 +6,7 @@
 /*   By: ahammout <ahammout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 14:59:25 by ahammout          #+#    #+#             */
-/*   Updated: 2023/07/26 17:16:02 by ahammout         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:18:41 by ahammout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@
 
 class   Intern
 {
-    private:
-    int silent;
-
     public:
     Intern();
     Intern(Intern  &SRC);
     ~Intern();
     
-    int getSilent();
     Intern& operator=(Intern &RightHand);
     
-    AForm   *makeForm(std::string FornName, std::string TargetName); 
+    AForm   *makeForm(std::string FornName, std::string TargetName);
+    class FormNotExist : std::exception
+    {
+        public:
+        const char* what() const throw();
+    };
 };
 
 #endif
